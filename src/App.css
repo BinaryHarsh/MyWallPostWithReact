@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  overflow-x: hidden;
+}
+.app-container {
+  font-family: sans-serif;
+  padding: 0 20px;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-body {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Optional: Mobile devices पर popup heavy लगे तो disable करने के लिए */
+@media (max-width: 576px) {
+  .modal {
+    display: none !important;
+  }
+}

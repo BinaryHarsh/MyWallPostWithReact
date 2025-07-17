@@ -1,0 +1,89 @@
+.quote-box {
+  background-color: #FF6A00;
+  color: white;
+  padding: 40px;
+  margin-top: 60px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.highlight {
+  color: #FF6A00;
+}
+
+.get-started-btn, .hire-us-btn {
+  background-color: #0047FF;
+  border-color: #0047FF;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 30px;
+  color: white;
+}
+
+.hire-us-btn {
+  background-color: #FF6A00;
+  border-color: #FF6A00;
+}
+
+.faq-box {
+  background-color: #397eff;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.faq-item.open {
+  background-color: #397eff;
+  color: white;
+}
+
+.quote-section {
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  width: 100%;
+  height: 60vh;
+  position: relative;
+}
+
+.overlay-content {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.icon-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .quote-box {
+    font-size: 1.1rem;
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  .get-started-btn, .hire-us-btn {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .quote-section {
+    height: 40vh;
+  }
+}

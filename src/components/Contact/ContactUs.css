@@ -1,0 +1,211 @@
+.contact-hero {
+  position: relative;
+  background: url('/src/assets/images/webDev.png') no-repeat center center/cover;
+  min-height: 100vh;
+  margin-top: 0;
+  padding: 0;
+  color: black;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+.contact-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.custom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 100px;
+  padding-right: 20px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .custom-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Contact Info Section */
+.contact-info-section {
+  background-color: white;
+  margin-top: 0;
+  padding: 80px 0;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+}
+
+.info-card {
+  display: flex;
+  background-color: #f8f8f8;
+  border: 1px solid #eee;
+  padding: 40px 60px;
+  border-radius: 4px;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: gray;
+}
+
+.info-item .icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.icon.orange {
+  color: orange;
+}
+
+.icon.blue {
+  color: #007bff;
+}
+
+.vertical-divider {
+  height: 60px;
+  width: 2px;
+  background: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .info-card {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+    text-align: center;
+  }
+}
+
+/* Contact Form Section */
+.contact-section {
+  background: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+
+.contact-image-side {
+  position: relative;
+  padding: 0;
+}
+
+.contact-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.contact-form-side {
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .contact-image-side {
+    display: none;
+  }
+
+  .contact-form-side {
+    padding: 2rem;
+  }
+}
+
+/* Free Consultation Section */
+.free-consultation-section {
+  background: url('/src/assets/images/webDev.png') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  padding: 60px 20px;
+}
+
+.free-consultation-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+.quote-text {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.consult-heading {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.btn-orange {
+  background-color: #ff6c00;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-orange:hover {
+  background-color: #e65a00;
+}
+
+@media (max-width: 768px) {
+  .free-consultation-section {
+    min-height: auto;
+    text-align: center;
+    padding: 100px 20px 60px;
+  }
+
+  .quote-text {
+    font-size: 18px;
+  }
+
+  .consult-heading {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .btn-orange {
+    font-size: 16px;
+    padding: 10px 24px;
+  }
+}

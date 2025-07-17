@@ -1,0 +1,24 @@
+.quote-banner {
+  position: relative;
+  background-image: url('../../assets/images/meeting.png'); /* ✅ image path sahi dena */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.quote-banner::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0154f7;
+  opacity: 0.702;
+  z-index: -1;
+}

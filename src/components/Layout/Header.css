@@ -1,0 +1,18 @@
+/* Navbar styling only */
+.navbar {
+  background-color: #5484A4 !important;
+  border-radius: 12px;
+  padding: 10px 30px;
+  margin: 20px auto;
+
+  
+  width: 95%;           
+  max-width: 1200px;       
+}
+
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: black !important;
+  font-weight: 500;
+}
