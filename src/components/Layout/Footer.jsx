@@ -85,14 +85,14 @@ function Footer() {
             <i className="bi bi-envelope-fill fs-4 me-2 text-primary"></i>
             <div>
               <strong>Email Us</strong><br />
-              smartdigitalwings@gmail.com
+              ht0257445@gmail.com
             </div>
           </div>
           <div className="col-md-3 mb-3 d-flex align-items-center">
             <i className="bi bi-telephone-fill fs-4 me-2 text-primary"></i>
             <div>
               <strong>Contact Us</strong><br />
-              +91-7017281826
+              +91-9310891024
             </div>
           </div>
           <div className="col-md-3 mb-3 d-flex align-items-center">

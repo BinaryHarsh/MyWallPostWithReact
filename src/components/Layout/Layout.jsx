@@ -14,7 +14,7 @@ function Layout () {
         <Header/>
         {/* <Navbar/> */}
       
-       <main style={{ minHeight: '80vh' }} className=''>
+       <main style={{ minHeight: '80vh',  overflow:'hidden'}} className='container-fluid px-3 my-5'>
         <Outlet /> {/* Page-specific content will appear here */}
       </main>
       

@@ -1,18 +1,104 @@
-/* Navbar styling only */
+/* Header.css */
+
+/* General Navbar Styling */
 .navbar {
-  background-color: #5484A4 !important;
   border-radius: 12px;
   padding: 10px 30px;
-  margin: 20px auto;
-
-  
-  width: 95%;           
-  max-width: 1200px;       
+  margin-top: 50px; /* account for fixed top-bar */
+  width: 95%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  position: fixed;
+  top:50px;
 }
 
-
+/* Brand & Links */
 .navbar .nav-link,
 .navbar .navbar-brand {
-  color: black !important;
   font-weight: 500;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Top Bar */
+.top-bar {
+  font-size: 14px;
+  z-index: 1040;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .dropdown-menu {
+  background-color: #222 !important;
+}
+
+body.dark-mode .nav-link,
+body.dark-mode .navbar-brand {
+  color: #ffffff !important;
+}
+
+body.dark-mode a {
+  color: #ccc;
+}
+
+body.dark-mode .top-bar {
+  background-color: #333 !important;
+}
+
+/* Responsive behavior */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 8px 20px;
+    margin-top: 100px;
+  }
+
+  .navbar .nav-link {
+    padding: 10px 15px;
+    text-align: center;
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+
+  .top-bar {
+    font-size: 13px;
+  }
+
+  .btn-toggle-theme {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 573px) {
+  .navbar {
+    margin-top: 80px; /* updated to 50px for mobile view */
+    border-radius: 0;
+    padding: 8px 10px;
+    width: 100%;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 16px;
+  }
+
+  .navbar .nav-link {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .top-bar .container {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
 }

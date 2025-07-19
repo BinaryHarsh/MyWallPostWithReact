@@ -1,7 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import DevImage from '../../assets/images/webDev.png';
-import WebDev from '../../assets/images/WebDev.png';
+import DevImage from '../../assets/images/webDev3.jpg';
+import WebDev from '../../assets/images/WebDev5.jpg';
+import webDev1 from "../../assets/images/WebDev4.jpg";
+import webDev2 from "../../assets/images/WebDev6.jpg";
+
+
+
 import Meeting from '../../assets/images/meeting.png';
 import './Style.css';
 
@@ -16,7 +21,7 @@ function WebDesign() {
       {/* NEW BREADCRUMB BANNER SECTION */}
       <div className="breadcrumb-banner d-flex align-items-center justify-content-center text-center text-info"
         style={{
-          backgroundImage: `url(${WebDev})`,
+          backgroundImage: `url(${DevImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '80vh',
@@ -39,7 +44,7 @@ function WebDesign() {
         {/* SECTION 1 – Original Layout (Image Left, Quote Box) */}
         <div className="row align-items-center">
           <div className="col-md-6 text-center mb-4 mb-md-0">
-            <img src={DevImage} alt="Web Design" className="img-fluid" />
+            <img src={WebDev} alt="Web Design" className="img-fluid" />
             <div
               style={{
                 backgroundColor: '#FF6A00',
@@ -115,14 +120,14 @@ function WebDesign() {
             </a>
           </div>
           <div className="col-md-6 text-center order-1 order-md-2 mb-4 mb-md-0">
-            <img src={DevImage} alt="Web Design Server" className="img-fluid" />
+            <img src={webDev1} alt="Web Design Server" className="img-fluid" />
           </div>
         </section>
 
         {/* SECTION 3 – New Section for Uploaded Image */}
         <section className="row align-items-center mt-5 pt-5">
           <div className="col-md-6 text-center mb-4 mb-md-0">
-            <img src={DevImage} alt="Web Design Extra" className="img-fluid" />
+            <img src={webDev2} alt="Web Design Extra" className="img-fluid" />
           </div>
           <div className="col-md-6">
             <h2 className="fw-light">Website Design <strong>Meerut</strong></h2>

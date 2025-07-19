@@ -1,14 +1,17 @@
+// WebDevIntroSection.jsx
 import React from 'react';
 import { useState, useRef } from 'react';
+import HomeSection2 from '../HeroSection/HomeSection2.jsx'
 import DevImage from '../../assets/images/webDev.png';
 import Meeting from '../../assets/images/meeting.png';
-import devlogo from '../../assets/images/devlogo.jpg'
-import devlogo2 from '../../assets/images/devlogo2.jpg'
+import devlogo from '../../assets/images/devlogo.jpg';
+import devlogo2 from '../../assets/images/devlogo2.jpg';
+import WebDev from '../../assets/images/Logoweb3.jpg'
 
 import './Style.css';
 import { categories } from '../../assets/images/images.js';
 
-function WebDevIntroSection({ category, setCategory }) {
+function digitalMarketing({ category, setCategory }) {
   const [openItem, setOpenItem] = useState(null);
   const toggleItem = (id) => {
     setOpenItem(openItem === id ? null : id);
@@ -26,11 +29,28 @@ function WebDevIntroSection({ category, setCategory }) {
   };
 
   return (
-    <div className="container-fluid p-0">
+    <div>
+        <HomeSection2
+        heading="Digital Marketing in Meerut"
+        breadcrumbText={
+          <>
+            <span className="text-black">Home</span> &nbsp;|&nbsp;
+            <span className="text-warning font-1xl fw-semibold">
+                Digital Marketing Company in Meerut
+            </span>
+            <span className="text-warning fw-semibold">
+              {' '}
+              || Digital Marketing Meerut
+            </span>
+          </>
+        }
+        bgImage={WebDev}
+      />
+        <div className="container-fluid p-0">
       {/* SECTION 1 */}
       <div className="row align-items-center p-5">
         <div className="col-md-6 text-center mb-4 mb-md-0">
-          <img src={DevImage} alt="Web Development" className="img-fluid" />
+          <img src={DevImage} alt="Digital Marketing" className="img-fluid" />
           <div className="bg-warning text-white p-4 mt-4 fw-bold rounded">
             “We don't just build websites, we build websites that SELLS”
           </div>
@@ -42,12 +62,14 @@ function WebDevIntroSection({ category, setCategory }) {
             <span className="text-warning">Meerut</span>
           </h2>
           <p className="text-muted">Hire us today! Get a free quote.</p>
-          <h5 className="fw-bold mt-4 mb-3">Best Website Development Company Meerut</h5>
+          <h5 className="fw-bold mt-4 mb-3">
+            Best Digital Marketing Company Meerut
+          </h5>
           <p>
             Looking for a beautiful, new website? You are at the right place! We deliver cutting edge websites that are beautiful to look at and perform equally well.
           </p>
           <p>
-            We ensure a solid user experience that delivers higher engagement and conversion. Smart Digital Wings is a premier website development company in Meerut.
+            We ensure a solid user experience that delivers higher engagement and conversion. Smart Digital Wings is a premier digital marketing company in Meerut.
           </p>
           <a href="#contact" className="btn btn-primary mt-3 px-4 rounded-3">
             Get Started
@@ -59,7 +81,7 @@ function WebDevIntroSection({ category, setCategory }) {
       <section className="row align-items-center p-5 bg-light">
         <div className="col-md-6 order-2 order-md-1">
           <h2>
-            Web Development <strong>Company In </strong>
+            Digital Marketing <strong>Company In </strong>
             <span className="text-warning">Meerut</span>
           </h2>
           <p className="text-muted fs-5">Take your business online with an attractive website</p>
@@ -81,8 +103,10 @@ function WebDevIntroSection({ category, setCategory }) {
           <img src={devlogo2} alt="Web Development Extra" className="img-fluid" />
         </div>
         <div className="col-md-6">
-          <h2>Website Development <strong>Meerut</strong></h2>
-          <p className="text-muted">Smart Digital Wings is one of the best web development companies in Meerut.</p>
+          <h2>Digital Marketing <strong>Meerut</strong></h2>
+          <p className="text-muted">
+            Smart Digital Wings is one of the best digital marketing companies in Meerut.
+          </p>
           <p>
             Get in touch via our contact form or call <strong>+91-9310891024</strong>. We’ll guide you with the best strategy.
           </p>
@@ -96,7 +120,7 @@ function WebDevIntroSection({ category, setCategory }) {
       <section className="row justify-content-center align-items-start p-5 bg-light">
         <div className="col-md-8">
           <h2>
-            Website Development <strong>Services </strong>
+            Digital Marketing <strong>Services </strong>
             <span className="text-warning">FAQs</span>
           </h2>
           <p className="text-muted fs-5">Something you should know about website development</p>
@@ -150,7 +174,9 @@ function WebDevIntroSection({ category, setCategory }) {
             <div
               key={index}
               className="text-center explore-menu-list-item"
-              onClick={() => setCategory((prev) => (prev === item.category ? 'All' : item.category))}
+              onClick={() =>
+                setCategory((prev) => (prev === item.category ? 'All' : item.category))
+              }
             >
               <img
                 src={item.icon}
@@ -167,7 +193,8 @@ function WebDevIntroSection({ category, setCategory }) {
         </div>
       </section>
     </div>
+    </div>
   );
 }
 
-export default WebDevIntroSection;
+export default digitalMarketing;

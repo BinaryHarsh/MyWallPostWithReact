@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,9 +22,62 @@ body, html {
   padding-bottom: 1rem;
 }
 
-/* Optional: Mobile devices पर popup heavy लगे तो disable करने के लिए */
+
+/* @media (max-width: 576px) {
+  .modal {
+    display: none !important;
+  }
+} */ 
+ /* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background-color: #f8f9fa;
+  color: #212529;
+  margin: 0px;
+}
+
+/* Container wrapper */
+.app-container {
+  padding: 0 16px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Modal Styles */
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-body {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Modal Hide on Small Screens */
 @media (max-width: 576px) {
   .modal {
     display: none !important;
   }
+}
+
+/* Optional Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
 }

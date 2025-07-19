@@ -8,6 +8,8 @@ import About from "./pages/About.jsx";
 import WebDevelopment from "./components/WebDevelopment/WebDevelopment.jsx";
 import ContactUS from "./components/Contact/ContactUs.jsx";
 import WebDesign from "./components/WebDesign/WebDesign.jsx"
+import DigitalMarketing from "./components/digitalMarketing/digitalMarketing.jsx"
+import SEOSMO from './components/SEOSMO/SEOSMO.jsx'
 
 function App() {
   return (
@@ -19,6 +21,10 @@ function App() {
           <Route path="services/web-development" element={<WebDevelopment/>}/>
           <Route path= "contact" element={<ContactUS/>}/>
           <Route path = "services/web-design" element={<WebDesign/>}/>
+          <Route path = "services/digital-marketing" element={<DigitalMarketing/>}/>
+          <Route path = "services/seo-smo" element={<SEOSMO/>}/>
+
+
         </Route>
       </Routes>
    
