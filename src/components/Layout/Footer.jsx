@@ -106,7 +106,7 @@ function Footer() {
 
         {/* Copyright */}
         <div className="text-center mt-4">
-          <small>&copy; {new Date().getFullYear()} Smart Digital Wings. All Rights Reserved.</small>
+          <small>&copy; {new Date().getFullYear()} MyWallPost. All Rights Reserved.</small>
         </div>
       </div>
     </footer>
