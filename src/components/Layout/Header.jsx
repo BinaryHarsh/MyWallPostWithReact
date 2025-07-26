@@ -1,93 +1,88 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/logo.png';
 
-
 function Header() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
-
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const topBarRef = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    const dark = saved === 'dark';
-    setIsDarkMode(dark);
-    document.body.className = dark ? 'dark-mode' : 'light-mode';
+    const loggedIn = localStorage.getItem('userLoggedIn') === 'true';
+    setIsLoggedIn(loggedIn);
   }, []);
 
   useEffect(() => {
-    document.body.className = isDarkMode ? 'dark-mode' : 'light-mode';
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
+    setNavbarOpen(false);
+  }, [location]);
 
-  const toggleTheme = () => setIsDarkMode(prev => !prev);
+  const handleLogin = () => {
+    localStorage.setItem('userLoggedIn', 'true');
+    setIsLoggedIn(true);
+    navigate('/dashboard');
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('userLoggedIn');
+    setIsLoggedIn(false);
+    navigate('/');
+  };
+
+  const handleSignup = () => {
+    navigate('/signup');
+  };
 
   return (
     <header>
       {/* Top Bar */}
-      <div className={`top-bar py-2  fixed-top ${isDarkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
+      <div ref={topBarRef} className="top-bar fixed-top p-0 bg-light text-dark">
         <div className="container d-flex justify-content-between align-items-center flex-wrap">
-          <div className="contact-info mb-1 mb-lg-0">
-                      <i className="bi bi-envelope-fill fs-4 me-2 text-primary"></i>
-
+          <div className="contact-info d-flex align-items-center gap-2 small">
+            <i className="bi bi-envelope-fill"></i>
             <a href="mailto:ht0257445@gmail.com">ht0257445@gmail.com</a>
-            <span className="mx-3">|</span>
-         <i className="bi bi-telephone-fill fs-4 me-2 text-primary"></i>
+            <span className="d-none d-md-inline">|</span>
+            <i className="bi bi-telephone-fill text-primary ms-md-2"></i>
             <a href="tel:+919310891024">+91-9310891024</a>
           </div>
           <div className="d-flex align-items-center">
-            <div className="social-icons me-3">
-              <Link to="#" className="me-2"><i className="bi bi-facebook"></i></Link>
-              <Link to="https://www.instagram.com/himanshu_sain____/" className="me-2"><i className="bi bi-instagram"></i></Link>
-              <Link to="https://www.linkedin.com/in/himanshu-sain09090/"><i className="bi bi-linkedin"></i></Link>
+            <div className="social-icons me-2">
+              <Link to="#" className="me-2"><i className="bi bi-facebook fs-6"></i></Link>
+              <Link to="https://www.instagram.com/himanshu_sain____/" className="me-2"><i className="bi bi-instagram fs-6"></i></Link>
+              <Link to="https://www.linkedin.com/in/himanshu-sain09090/"><i className="bi bi-linkedin fs-6"></i></Link>
             </div>
-            <button className="btn btn-sm btn-outline-secondary btn-toggle-theme" onClick={toggleTheme}>
-              {isDarkMode ? '☀️ Light' : '🌙 Dark'}
-            </button>
           </div>
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <nav className={`navbar navbar-expand-lg  ${isDarkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-secondary'}`}>
-        <div className="container">
+      {/* Navbar */}
+      <nav className="navbar sticky-top navbar-expand-lg navbar-light" style={{ marginTop: '36px', backgroundColor: '#e3f2fd' }}>
+        <div className="container-fluid">
           <NavLink className="navbar-brand d-flex align-items-center" to="/">
             <img src={logo} alt="logo" height="40" className="me-2" />
             <strong>My Wall Post</strong>
           </NavLink>
 
           <button
-             className="navbar-toggler"
-  type="button"
-   aria-controls="navbarNav"
-   aria-expanded={navbarOpen}
-   aria-label="Toggle navigation"
-   onClick={() => setNavbarOpen(prev => !prev)}
-
+            type="button"
+            className="navbar-toggler"
+            onClick={() => setNavbarOpen(prev => !prev)}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div   className={`collapse navbar-collapse${navbarOpen ? ' show' : ''}`}
- id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <NavLink to="/" end className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/about" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
-                onClick={() => setNavbarOpen(false)}
+          <div className={`collapse navbar-collapse${navbarOpen ? ' show' : ''}`} id="navbarCollapse">
+            <div className="navbar-nav">
+              <NavLink to="/" end className={({ isActive }) => 'nav-item nav-link' + (isActive ? ' active' : '')}>
+                Home
+              </NavLink>
+              <NavLink to="/about" className={({ isActive }) => 'nav-item nav-link' + (isActive ? ' active' : '')}>
+                About Us
+              </NavLink>
 
-                >
-                  About Us
-                </NavLink>
-              </li>
-              <li className="nav-item dropdown">
-                {/* FIXED: Use <a> for Bootstrap dropdown-toggle */}
+              <div className="nav-item dropdown">
                 <a
                   href="#"
                   className="nav-link dropdown-toggle"
@@ -98,25 +93,40 @@ function Header() {
                 >
                   Services
                 </a>
-                <ul className="dropdown-menu" aria-labelledby="servicesDropdown">
-                  <li><NavLink to="/services/web-development" className="dropdown-item">Web Development</NavLink></li>
-                  <li><NavLink to="/services/web-design" className="dropdown-item">Web Design</NavLink></li>
-                  <li><NavLink to="/services/digital-marketing" className="dropdown-item">Digital Marketing</NavLink></li>
-                  <li><NavLink to="/services/seo-smo" className="dropdown-item">SEO / SMO</NavLink></li>
-                  <li><NavLink to="/services/app-development" className="dropdown-item">App Development</NavLink></li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/portfolio" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
-                  Portfolio
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/contact" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
-                  Contact
-                </NavLink>
-              </li>
-            </ul>
+                <div className="dropdown-menu" aria-labelledby="servicesDropdown">
+                  <NavLink to="/services/web-development" className="dropdown-item">Web Development</NavLink>
+                  <NavLink to="/services/web-design" className="dropdown-item">Web Design</NavLink>
+                  <NavLink to="/services/digital-marketing" className="dropdown-item">Digital Marketing</NavLink>
+                  <NavLink to="/services/seo-smo" className="dropdown-item">SEO / SMO</NavLink>
+                  <NavLink to="/services/app-development" className="dropdown-item">App Development</NavLink>
+                </div>
+              </div>
+
+              <NavLink to="/portfolio" className={({ isActive }) => 'nav-item nav-link' + (isActive ? ' active' : '')}>
+                Portfolio
+              </NavLink>
+              <NavLink to="/contact" className={({ isActive }) => 'nav-item nav-link' + (isActive ? ' active' : '')}>
+                Contact
+              </NavLink>
+            </div>
+
+            {/* Right side buttons */}
+            <div className="navbar-nav ms-auto d-flex align-items-center gap-2">
+              {!isLoggedIn ? (
+                <>
+                  <button className="btn btn-outline-primary btn-sm" onClick={handleLogin}>
+                    Login
+                  </button>
+                  <button className="btn btn-primary btn-sm" onClick={handleSignup}>
+                    Signup
+                  </button>
+                </>
+              ) : (
+                <button className="btn btn-danger btn-sm" onClick={handleLogout}>
+                  Sign Out
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </nav>

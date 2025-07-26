@@ -3,46 +3,47 @@ import { Link } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter';
 
 import './HeroSection.css';
-import heroBg from '../../assets/images/heroBg.jpg';
-
 
 function HeroSection() {
   return (
-    <header
-      className="hero-section mt-1 h-100vh"
-      style={{ backgroundImage: `url(${heroBg})` }}
-    >
-      {/* Semi-transparent overlay */}
-      <div className="hero-overlay" />
+    <section className="hero-section py-5">
+      <div className="container">
+        <div className="row align-items-center">
+          {/* Left Column */}
+          <div className="col-md-6">
+            <h1 className="text-primary mb-3">
+              Give Wings to Your Business{' '}
+              <span className="typewriter-text text-dark">
+                <Typewriter
+                  words={['Development', 'Marketing', 'Web Designing', 'SEO/SMO']}
+                  loop={0}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={90}
+                  deleteSpeed={50}
+                  delaySpeed={1500}
+                />
+              </span>
+            </h1>
+            <p className="lead text-muted">
+              An Affordable Digital Marketing and Website Designing Company in Meerut.
+            </p>
+            <Link to="/about" className="btn btn-primary btn-lg mt-3">
+              Get Started
+            </Link>
+          </div>
 
-      <div className="hero-content container">
-        {/* Left Column: Text and Typewriter */}
-        <div className="text-col">
-          <h1 className='' style={{ color: '#D96F32' }}>
-            Give Wings to Your Business{' '}
-            <span className="typewriter-text" style={{color:"white"}}>
-              <Typewriter
-                words={[' Development', ' Marketing', ' Web Designing', ' SEO/SMO']}
-                loop={0}
-                cursor
-                cursorStyle="_"
-                typeSpeed={90}
-                deleteSpeed={50}
-                delaySpeed={1500}
-              />
-            </span>
-          </h1>
-
-          <p className="lead">
-            An Affordable Digital Marketing and Website Designing Company in Meerut.
-          </p>
-
-          <Link to="/about" className="btn btn-light btn-lg">
-            Get Started
-          </Link>
+          {/* Right Column - Image */}
+          <div className="col-md-6 mt-4 mt-md-0">
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw3fHxoZXJvfGVufDB8MHx8fDE3MTIwNzMwNDh8MA&ixlib=rb-4.0.3&q=80&w=1080"
+              alt="Hero"
+              className="img-fluid rounded shadow"
+            />
+          </div>
         </div>
       </div>
-    </header>
+    </section>
   );
 }
 

@@ -10,6 +10,8 @@ import ContactUS from "./components/Contact/ContactUs.jsx";
 import WebDesign from "./components/WebDesign/WebDesign.jsx"
 import DigitalMarketing from "./components/digitalMarketing/digitalMarketing.jsx"
 import SEOSMO from './components/SEOSMO/SEOSMO.jsx'
+import LoginModal from "./pages/Login.jsx";
+import Portfolio from "./components/portfolio/portfolio.jsx";
 
 function App() {
   return (
@@ -23,6 +25,11 @@ function App() {
           <Route path = "services/web-design" element={<WebDesign/>}/>
           <Route path = "services/digital-marketing" element={<DigitalMarketing/>}/>
           <Route path = "services/seo-smo" element={<SEOSMO/>}/>
+          <Route path = "/dashboard" element={<LoginModal/>}/>
+          <Route path = "/portfolio" element={<Portfolio/>}/>
+
+
+
 
 
         </Route>
