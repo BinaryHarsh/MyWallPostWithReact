@@ -1,116 +1,143 @@
-.about-us {
-  background-color: #f8f9fa;
-  overflow: hidden;
-  position: relative;
+/* src/components/About.css */
+.about-container {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
 }
 
-.about-us::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(13, 110, 253, 0.05) 0%, transparent 70%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.about-us-image {
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border-radius: 12px;
-  position: relative;
-  z-index: 1;
-}
-
-.about-us-image:hover {
-  transform: scale(1.03);
-}
-
-.about-us .list-unstyled li {
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 25px;
-}
-
-.about-us .list-unstyled li i {
-  position: absolute;
-  left: 0;
-  top: 4px;
-}
-
-.about-us-button {
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  padding: 10px 25px;
-  font-weight: 600;
-  border: none;
-  box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-}
-
-.about-us-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
-}
-
-.about-us-button::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: 0.5s;
-  z-index: -1;
-}
-
-.about-us-button:hover::after {
-  left: 100%;
-}
-
-h2.font-weight-bold {
-  position: relative;
-  padding-bottom: 15px;
-  margin-bottom: 25px;
-}
-
-h2.font-weight-bold::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
+.divider {
+  width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #0d6efd, #6f42c1);
+  background: linear-gradient(to right, #007bff, #00bfff);
   border-radius: 2px;
 }
 
+.image-frame {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission-image {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-image::before {
+  content: "Mission";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.vision-image {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(45deg, #11998e 0%, #38ef7d 100%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vision-image::before {
+  content: "Vision";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.values-image {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(45deg, #ff416c 0%, #ff4b2b 100%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.values-image::before {
+  content: "Values";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 50%;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.stat-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 3px solid #007bff;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .about-us-image {
-    margin-top: 30px;
+  .mission-image, .vision-image, .values-image {
+    height: 250px;
   }
   
-  .about-us-button {
-    width: 100%;
-    margin-bottom: 20px;
+  .stat-circle {
+    width: 100px;
+    height: 100px;
   }
   
-  .row > div {
-    margin-bottom: 15px;
+  .stat-number {
+    font-size: 1.8rem;
   }
-}
-
-/* Animation for counters */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.counter-animate {
-  animation: pulse 0.5s ease-in-out;
 }

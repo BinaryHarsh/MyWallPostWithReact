@@ -10,8 +10,13 @@ import ContactUS from "./components/Contact/ContactUs.jsx";
 import WebDesign from "./components/WebDesign/WebDesign.jsx"
 import DigitalMarketing from "./components/digitalMarketing/digitalMarketing.jsx"
 import SEOSMO from './components/SEOSMO/SEOSMO.jsx'
-import LoginModal from "./pages/Login.jsx";
+// import LoginModal from "./pages/Login.jsx";
 import Portfolio from "./components/portfolio/portfolio.jsx";
+import AppDevelopment from "./components/AppDevlopment/Appdevlopment.jsx";
+import LoginPage from "./pages/Login.jsx";
+import SignupPage from "./pages/SignupPage.jsx";
+// import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
   return (
@@ -21,12 +26,19 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services/web-development" element={<WebDevelopment/>}/>
-          <Route path= "contact" element={<ContactUS/>}/>
           <Route path = "services/web-design" element={<WebDesign/>}/>
           <Route path = "services/digital-marketing" element={<DigitalMarketing/>}/>
           <Route path = "services/seo-smo" element={<SEOSMO/>}/>
-          <Route path = "/dashboard" element={<LoginModal/>}/>
+          <Route path = "services/app-development" element={<AppDevelopment/>}/>
+          <Route path= "contact" element={<ContactUS/>}/>
+          {/* <Route path = "/dashboard" element={<LoginModal/>}/>
+           */}
+          <Route path= "dashboard" element={<LoginPage/>}/>
+          <Route path="signup" element={<SignupPage/>}/>
+
+
           <Route path = "/portfolio" element={<Portfolio/>}/>
+
 
 
 

@@ -1,20 +1,36 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/logo.png';
 
 function Header() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const topBarRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Check login status
   useEffect(() => {
     const loggedIn = localStorage.getItem('userLoggedIn') === 'true';
     setIsLoggedIn(loggedIn);
   }, []);
 
+  // Close mobile menu when location changes
   useEffect(() => {
     setNavbarOpen(false);
   }, [location]);
@@ -37,28 +53,10 @@ function Header() {
 
   return (
     <header>
-      {/* Top Bar */}
-      <div ref={topBarRef} className="top-bar fixed-top p-0 bg-light text-dark">
-        <div className="container d-flex justify-content-between align-items-center flex-wrap">
-          <div className="contact-info d-flex align-items-center gap-2 small">
-            <i className="bi bi-envelope-fill"></i>
-            <a href="mailto:ht0257445@gmail.com">ht0257445@gmail.com</a>
-            <span className="d-none d-md-inline">|</span>
-            <i className="bi bi-telephone-fill text-primary ms-md-2"></i>
-            <a href="tel:+919310891024">+91-9310891024</a>
-          </div>
-          <div className="d-flex align-items-center">
-            <div className="social-icons me-2">
-              <Link to="#" className="me-2"><i className="bi bi-facebook fs-6"></i></Link>
-              <Link to="https://www.instagram.com/himanshu_sain____/" className="me-2"><i className="bi bi-instagram fs-6"></i></Link>
-              <Link to="https://www.linkedin.com/in/himanshu-sain09090/"><i className="bi bi-linkedin fs-6"></i></Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Navbar */}
-      <nav className="navbar sticky-top navbar-expand-lg navbar-light" style={{ marginTop: '36px', backgroundColor: '#e3f2fd' }}>
+      <nav 
+        className={`navbar navbar-expand-lg navbar-light fixed-top ${scrolled ? 'navbar-scrolled' : ''}`}
+      >
         <div className="container-fluid">
           <NavLink className="navbar-brand d-flex align-items-center" to="/">
             <img src={logo} alt="logo" height="40" className="me-2" />
@@ -110,7 +108,7 @@ function Header() {
               </NavLink>
             </div>
 
-            {/* Right side buttons */}
+            {/* Login/Signup buttons */}
             <div className="navbar-nav ms-auto d-flex align-items-center gap-2">
               {!isLoggedIn ? (
                 <>
