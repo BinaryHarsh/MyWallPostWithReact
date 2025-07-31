@@ -1,65 +1,80 @@
-// ServicesSection.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { BsLaptop, BsTelephone, BsHddNetwork, BsMouse } from 'react-icons/bs';
-import './ServicesSection.css'; // Optional: add styling here
+import {
+  BsLaptop,
+  BsPhone,
+  BsGraphUp,
+  BsMegaphone,
+  BsPalette,
+  BsSearch,
+} from 'react-icons/bs';
+import './ServicesSection.css';
 
 const services = [
   {
-    icon: <BsLaptop size={40} />,
+    icon: <BsLaptop size={32} color="white" />,
+    title: 'Web Development',
+    description:
+      'Create stunning, responsive websites tailored to your brand\'s unique vision and goals.',
+  },
+  {
+    icon: <BsPhone size={32} color="white" />,
+    title: 'Mobile Apps',
+    description:
+      'Build powerful mobile applications that engage users and drive results.',
+  },
+  {
+    icon: <BsGraphUp size={32} color="white" />,
+    title: 'Analytics',
+    description:
+      'Transform your data into actionable insights with our advanced analytics solutions.',
+  },
+  {
+    icon: <BsMegaphone size={32} color="white" />,
+    title: 'Digital Marketing',
+    description:
+      'Drive traffic, leads, and growth through our custom marketing campaigns across multiple platforms.',
+  },
+  {
+    icon: <BsPalette size={32} color="white" />,
     title: 'Web Design',
-    subtitle: 'And Development',
-    description: 'We love creative and design with passion of building epic web experiences to blow people\'s minds.',
-    link: '/services/web-design'
+    description:
+      'Our creative team designs visually stunning and user-friendly websites that reflect your brand identity.',
   },
   {
-    icon: <BsTelephone size={40} />,
-    title: 'Online Marketing',
-    subtitle: 'Digital Marketing',
-    description: '“It’s much easier to double your business by doubling your conversion rate than by doubling your traffic.”',
-    link: '/services/marketing'
+    icon: <BsSearch size={32} color="white" />,
+    title: 'SEO / SMO',
+    description:
+      'Boost your online visibility and ranking through smart search engine and social media optimization.',
   },
-  {
-    icon: <BsHddNetwork size={40} />,
-    title: 'Search Engine',
-    subtitle: 'Optimization',
-    description: '“Today It’s Not About ‘Get the Traffic’ — It’s About ‘Get the Targeted and Relevant Traffic.”',
-    link: '/services/seo'
-  },
-  {
-    icon: <BsMouse size={40} />,
-    title: 'Social Media',
-    subtitle: 'Optimization',
-    description: 'Ignoring social media marketing is like opening a business but not telling anyone.',
-    link: '/services/social-media'
-  }
 ];
 
 function ServicesSection() {
   return (
-    <section className="py-5 text-light container-fluid px-5" style={{ backgroundColor: '#0f172a' }}>
-      <div className="container text-center">
-        <h4 className="text-secondary">What We Do</h4>
-        <h2 className="fw-bold mb-3">Our <span className="text-white">Latest</span> Services</h2>
-        <p className="mb-5 text-muted">Something knows About Our Services</p>
-
-        <div className="row">
-          {services.map((service, idx) => (
-            <div className="col-md-3 mb-4" key={idx}>
-              <div className="p-4 rounded-4 h-100" style={{ backgroundColor: '#1e293b' }}>
-                <div className="mb-3 text-primary">{service.icon}</div>
-                <h6 className="text-muted">{service.title}</h6>
-                <h5 className="fw-bold text-white mb-3">{service.subtitle}</h5>
-                <p className="text-muted small">{service.description}</p>
-                <Link to={service.link} className="text-white text-decoration-none">
-                  Read More →
-                </Link>
-              </div>
-            </div>
-          ))}
+    <div className="container py-5">
+      <div className="row justify-content-center">
+        <div className="col-12 text-center mb-5">
+          <span className="custom-badge text-white mb-3 d-inline-block bg-primary px-3 py-1 rounded-pill">
+            Our Services
+          </span>
+          <h2 className="display-5 fw-bold mb-3">What We Offer</h2>
+          <p className="text-muted">
+            Discover our range of professional services tailored to your needs
+          </p>
         </div>
       </div>
-    </section>
+
+      <div className="row g-4">
+        {services.map((service, index) => (
+          <div className="col-md-4" key={index}>
+            <div className="service-card h-100 p-4 bg-dark text-white rounded shadow-sm">
+              <div className="icon-wrapper mb-4">{service.icon}</div>
+              <h4 className="service-title text-center mb-3">{service.title}</h4>
+              <p className="service-text text-center mb-0">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

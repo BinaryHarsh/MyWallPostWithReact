@@ -1,78 +1,88 @@
-// src/components/Header/Header.jsx
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/logo.png';
 
 function Header() {
-  return (
-    <header className=''>
-      {/* Top bar with contact info and social icons */}
-      <div className="top-bar bg-light py-2 ">
-        <div className="container d-flex justify-content-between align-items-center">
-          <div className="contact-info">
-            <i className="bi bi-envelope me-2"></i>
-            <a href="mailto:smartdigitalwings@gmail.com">smartdigitalwings@gmail.com</a>
-            <span className="mx-3">|</span>
-            <i className="bi bi-telephone me-2"></i>
-            <a href="tel:+917017281826">+91-7017281826</a>
-          </div>
-          <div className="social-icons">
-            <Link to="#" className="text-dark me-2"><i className="bi bi-facebook"></i></Link>
-            <Link to="#" className="text-dark me-2"><i className="bi bi-instagram"></i></Link>
-            <Link to="#" className="text-dark"><i className="bi bi-linkedin"></i></Link>
-          </div>
-        </div>
-      </div>
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-      {/* Main navigation bar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-secondary   ">
-        <div className="container">
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Check login status
+  useEffect(() => {
+    const loggedIn = localStorage.getItem('userLoggedIn') === 'true';
+    setIsLoggedIn(loggedIn);
+  }, []);
+
+  // Close mobile menu when location changes
+  useEffect(() => {
+    setNavbarOpen(false);
+  }, [location]);
+
+  const handleLogin = () => {
+    localStorage.setItem('userLoggedIn', 'true');
+    setIsLoggedIn(true);
+    navigate('/dashboard');
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('userLoggedIn');
+    setIsLoggedIn(false);
+    navigate('/');
+  };
+
+  const handleSignup = () => {
+    navigate('/signup');
+  };
+
+  return (
+    <header>
+      {/* Navbar */}
+      <nav 
+        className={`navbar navbar-expand-lg navbar-light fixed-top ${scrolled ? 'navbar-scrolled' : ''}`}
+      >
+        <div className="container-fluid">
           <NavLink className="navbar-brand d-flex align-items-center" to="/">
             <img src={logo} alt="logo" height="40" className="me-2" />
             <strong>My Wall Post</strong>
           </NavLink>
+
           <button
-            className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            className="navbar-toggler"
+            onClick={() => setNavbarOpen(prev => !prev)}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
+          <div className={`collapse navbar-collapse${navbarOpen ? ' show' : ''}`} id="navbarCollapse">
+            <div className="navbar-nav">
+              <NavLink to="/" end className={({ isActive }) => 'nav-item nav-link' + (isActive ? ' active' : '')}>
+                Home
+              </NavLink>
+              <NavLink to="/about" className={({ isActive }) => 'nav-item nav-link' + (isActive ? ' active' : '')}>
+                About Us
+              </NavLink>
 
-              <li className="nav-item">
-                <NavLink
-                  to="/"
-                  end
-                  className={({ isActive }) =>
-                    'nav-link' + (isActive ? ' active' : '')
-                  }
-                >
-                  Home
-                </NavLink>
-              </li>
-
-              <li className="nav-item">
-                <NavLink
-                  to="/about"
-                  className={({ isActive }) =>
-                    'nav-link' + (isActive ? ' active' : '')
-                  }
-                >
-                  About Us
-                </NavLink>
-              </li>
-
-              <li className="nav-item dropdown">
-                <NavLink
-                  to="#"
+              <div className="nav-item dropdown">
+                <a
+                  href="#"
                   className="nav-link dropdown-toggle"
                   id="servicesDropdown"
                   role="button"
@@ -80,59 +90,41 @@ function Header() {
                   aria-expanded="false"
                 >
                   Services
-                </NavLink>
-                <ul className="dropdown-menu" aria-labelledby="servicesDropdown">
-                  <li>
-                    <NavLink to="/services/web-development" className="dropdown-item">
-                      Web Development
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/services/web-design" className="dropdown-item">
-                      Web Design
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/services/digital-marketing" className="dropdown-item">
-                      Digital Marketing
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/services/seo-smo" className="dropdown-item">
-                      SEO / SMO
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/services/app-development" className="dropdown-item">
-                      App Development
-                    </NavLink>
-                  </li>
-                </ul>
-              </li>
+                </a>
+                <div className="dropdown-menu" aria-labelledby="servicesDropdown">
+                  <NavLink to="/services/web-development" className="dropdown-item">Web Development</NavLink>
+                  <NavLink to="/services/web-design" className="dropdown-item">Web Design</NavLink>
+                  <NavLink to="/services/digital-marketing" className="dropdown-item">Digital Marketing</NavLink>
+                  <NavLink to="/services/seo-smo" className="dropdown-item">SEO / SMO</NavLink>
+                  <NavLink to="/services/app-development" className="dropdown-item">App Development</NavLink>
+                </div>
+              </div>
 
-              <li className="nav-item">
-                <NavLink
-                  to="/portfolio"
-                  className={({ isActive }) =>
-                    'nav-link' + (isActive ? ' active' : '')
-                  }
-                >
-                  Portfolio
-                </NavLink>
-              </li>
+              <NavLink to="/portfolio" className={({ isActive }) => 'nav-item nav-link' + (isActive ? ' active' : '')}>
+                Portfolio
+              </NavLink>
+              <NavLink to="/contact" className={({ isActive }) => 'nav-item nav-link' + (isActive ? ' active' : '')}>
+                Contact
+              </NavLink>
+            </div>
 
-              <li className="nav-item">
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) =>
-                    'nav-link' + (isActive ? ' active' : '')
-                  }
-                >
-                  Contact
-                </NavLink>
-              </li>
-
-            </ul>
+            {/* Login/Signup buttons */}
+            <div className="navbar-nav ms-auto d-flex align-items-center gap-2">
+              {!isLoggedIn ? (
+                <>
+                  <button className="btn btn-outline-primary btn-sm" onClick={handleLogin}>
+                    Login
+                  </button>
+                  <button className="btn btn-primary btn-sm" onClick={handleSignup}>
+                    Signup
+                  </button>
+                </>
+              ) : (
+                <button className="btn btn-danger btn-sm" onClick={handleLogout}>
+                  Sign Out
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </nav>

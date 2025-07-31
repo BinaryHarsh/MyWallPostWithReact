@@ -1,7 +1,18 @@
-.text-bb3e00 {
-  color: #BB3E00 !important;
+.home-section2 h1 {
+  font-size: 3rem;
 }
 
 .breadcrumb-text {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .home-section2 {
+    height: 500px;
+    padding: 20px;
+  }
+
+  .home-section2 h1 {
+    font-size: 2rem;
+  }
 }

@@ -1,263 +1,268 @@
-import React from 'react';
-import { useState } from 'react';
-import DevImage from '../../assets/images/webDev.png';
-import WebDev from '../../assets/images/WebDev.png';
+import React, { useState, useEffect } from 'react';
+import HomeSection2 from '../HeroSection/HomeSection2.jsx';
+import DevImage from '../../assets/images/webDev3.jpg';
+import WebDev from '../../assets/images/WebDev5.jpg';
+import webDev1 from "../../assets/images/WebDev4.jpg";
+import webDev2 from "../../assets/images/WebDev6.jpg";
 import Meeting from '../../assets/images/meeting.png';
-import './Style.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import './style.css';
+import { FaPlus, FaMinus } from 'react-icons/fa';
 
 function WebDesign() {
   const [openItem, setOpenItem] = useState(null);
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   const toggleItem = (id) => {
     setOpenItem(openItem === id ? null : id);
   };
 
   return (
-    <>
-      {/* NEW BREADCRUMB BANNER SECTION */}
-      <div className="breadcrumb-banner d-flex align-items-center justify-content-center text-center text-info"
-        style={{
-          backgroundImage: `url(${WebDev})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height: '80vh',
-          width: '100%',
-          position: 'relative',
-          zIndex: 1
-        }}>
-        <div className="container">
-          <h1 className="fw-bold display-5">Website Development in Meerut</h1>
-          <p className="breadcrumb-text mt-3">
-            <span className="text-white">Home</span> &nbsp;|&nbsp;
-            <span className="text-warning fw-semibold"> Web Development Company in Meerut </span>
-            <span className="text-warning fw-semibold">|| Website Development Meerut</span>
-          </p>
-        </div>
-      </div>
+    <div>
+      {/* ✅ Hero Section */}
+      <HomeSection2
+        heading="Website Design in Meerut"
+        typewriterWords={["Startups", "Brands", "Businesses", "Entrepreneurs"]}
+        description="Build high-converting, mobile-friendly websites with Smart Digital Wings – the best web design company in Meerut."
+        image={DevImage}
+        btnText="Get Free Consultation"
+        btnLink="/contact"
+      />
 
-      <div className="container my-5" style={{ width: "100vw" }}>
-
-        {/* SECTION 1 – Original Layout (Image Left, Quote Box) */}
-        <div className="row align-items-center">
+      <div className="container-fluid p-0">
+        {/* ✅ Section 1 */}
+        <div className="row align-items-center p-5" data-aos="fade-right">
           <div className="col-md-6 text-center mb-4 mb-md-0">
-            <img src={DevImage} alt="Web Design" className="img-fluid" />
-            <div
-              style={{
-                backgroundColor: '#FF6A00',
-                color: 'white',
-                padding: '40px',
-                marginTop: '60px',
-                fontWeight: '700',
-                fontSize: '1.4rem',
-                borderRadius: '6px',
-                lineHeight: '1.4',
-              }}
-            >
-              “We don't just build websites, we build websites that SELLS”
+            <img src={WebDev} alt="Web Design" className="img-fluid" />
+            <div className="bg-warning text-white p-4 mt-4 fw-bold rounded">
+              "We don't just build websites, we build websites that SELLS"
             </div>
           </div>
 
           <div className="col-md-6">
             <h2>
               <strong>Company In </strong>
-              <span style={{ color: '#FF6A00' }}>Meerut</span>
+              <span className="text-warning">Meerut</span>
             </h2>
-            <p className="text-muted mb-2">Hire us today! Get a free quote.</p>
-            <h5 className="fw-bold mt-4 mb-3">Best Website Design Company Meerut</h5>
+            <p className="text-muted">Hire us today! Get a free quote.</p>
+            <h5 className="fw-bold mt-4 mb-3">
+              Best Website Design Company Meerut
+            </h5>
             <p>
               Looking for a beautiful, new website? You are at the right place! We deliver cutting edge websites that are beautiful to look at and perform equally well.
-              We ensure a solid user experience that delivers substantially higher audience engagement and conversion rates.
             </p>
             <p>
-              It’s not just the website; we create a seamless user experience that keeps them coming back. We are recognized among leading custom web design companies.
-              Smart Digital Wings is a premier website design company in Meerut. We’re in the business of awesome web design because we rely on proven, modern technologies to build meaningful projects.
+              We ensure a solid user experience that delivers substantially higher audience engagement and conversion rates.
             </p>
-            <a
-              href="#contact"
-              className="btn btn-primary btn-lg mt-3 px-4"
-              style={{
-                backgroundColor: '#0047FF',
-                borderColor: '#0047FF',
-                fontWeight: '600',
-                borderRadius: '8px',
-              }}
-            >
+            <a href="#contact" className="btn btn-primary mt-3 px-4 rounded-3">
               Get Started
             </a>
           </div>
         </div>
 
-        {/* SECTION 2 – New Layout (Text Left, Image Right) */}
-        <section className="row align-items-center mt-5 pt-5">
+        {/* ✅ Section 2 */}
+        <section className="row align-items-center p-5 bg-light" data-aos="fade-left">
           <div className="col-md-6 order-2 order-md-1">
-            <h2 className="fw-light">
+            <h2>
               Web Design <strong>Company In </strong>
-              <span style={{ color: '#FF6A00' }}>Meerut</span>
+              <span className="text-warning">Meerut</span>
             </h2>
             <p className="text-muted fs-5">Take your business online with an attractive website</p>
             <p>
-              Be it a startup, enterprise or large-scale organization, our strategy is the same –
-              to understand how users will interact with your product and work on it to maximize
-              user engagement and satisfaction. With over 6 years of <strong>experience in offering custom web design services for clients around the world</strong>,
-              we’ve fulfilled over 55 projects spanning multiple industries and business domains including
-              healthcare, education, eCommerce, finance, media, entertainment, travel and automotive and more.
+              Be it a startup, enterprise or large-scale organization, our strategy is the same – to understand user behavior and maximize engagement.
             </p>
-            <a
-              href="#contact"
-              className="btn btn-warning btn-lg mt-4 px-4 text-white"
-              style={{
-                backgroundColor: '#FF6A00',
-                borderColor: '#FF6A00',
-                fontWeight: '600',
-                borderRadius: '8px',
-              }}
-            >
+            <a href="#contact" className="btn btn-warning text-white px-4 mt-3 rounded-3">
               Hire Us
             </a>
           </div>
-          <div className="col-md-6 text-center order-1 order-md-2 mb-4 mb-md-0">
-            <img src={DevImage} alt="Web Design Server" className="img-fluid" />
+          <div className="col-md-6 order-1 order-md-2 text-center">
+            <img src={webDev1} alt="Web Design" className="img-fluid" />
           </div>
         </section>
 
-        {/* SECTION 3 – New Section for Uploaded Image */}
-        <section className="row align-items-center mt-5 pt-5">
+        {/* ✅ Section 3 */}
+        <section className="row align-items-center p-5" data-aos="fade-right">
           <div className="col-md-6 text-center mb-4 mb-md-0">
-            <img src={DevImage} alt="Web Design Extra" className="img-fluid" />
+            <img src={webDev2} alt="Web Design" className="img-fluid" />
           </div>
           <div className="col-md-6">
-            <h2 className="fw-light">Website Design <strong>Meerut</strong></h2>
-            <p className="text-muted fs-5">
+            <h2>Website Design <strong>Meerut</strong></h2>
+            <p className="text-muted">
               Smart Digital Wings is one of the best online web design companies in Meerut.
             </p>
             <p>
-              No matter if you want web design services in Meerut or anywhere in India, just connect with us via our contact form or call us at <strong>+91-7017281826</strong>.
-              One of our experts will guide you with the best strategy and suggest the most suitable development packages.
+              Contact us via form or call <strong>+91-7017281826</strong> for the best advice and packages.
             </p>
             <p>
-              Along with websites, we also provide digital marketing services to help your business grow faster.
+              Along with websites, we also provide digital marketing services.
             </p>
-            <a
-              href="#contact"
-              className="btn btn-primary btn-lg mt-3 px-4"
-              style={{
-                backgroundColor: '#0047FF',
-                borderColor: '#0047FF',
-                fontWeight: '600',
-                borderRadius: '8px',
-              }}
-            >
+            <a href="#contact" className="btn btn-primary px-4 mt-3 rounded-3">
               Get Started
             </a>
           </div>
         </section>
 
-        {/* SECTION 4 – FAQs Section */}
-        <section className="row align-items-center mt-5 pt-5 justify-content-center">
-          <div className="col-md-6 order-2 order-md-1">
-            <h2 className="fw-light">
-              Website Design <strong>Services </strong>
-              <span style={{ color: '#FF6A00' }}>FAQs</span>
+        {/* ✅ Section 4 – FAQs */}
+        <section className="row justify-content-center align-items-start p-5 bg-light" data-aos="fade-up">
+          <div className="col-md-8">
+            <h2>
+              Web Design <strong>Services </strong>
+              <span className="text-warning">FAQs</span>
             </h2>
-            <p className="text-muted fs-5 mb-4">Something knows About Website Design</p>
+            <p className="text-muted fs-5">Things you should know about website design</p>
 
-            <div className="mb-7 p-4 rounded" style={{ backgroundColor: '#397eff', color: '#fff' }}>
-              <h5 className="fw-bold">What domain name should I choose?</h5>
-              <p>
-                The decision of domain name depends on how you plan to use it. As a rule,
-                it makes sense to choose one that is easy to pronounce and spell if you
-                will be telling people about it over the phone. Most importantly, you
-                should choose a name that is memorable and not confusing.
-              </p>
+            {/* Fixed answer block */}
+            <div className="bg-primary text-white p-4 rounded mb-3">
+              <h5>What domain name should I choose?</h5>
+              <p>It should be short, memorable, and easy to pronounce/spell.</p>
             </div>
 
-            <div className="mb-2 p-3 rounded fw-semibold"
-              onClick={() => toggleItem(1)}
-              style={{
-                marginTop: '20px',
-                padding: '20px',
-                borderRadius: '5px',
-                backgroundColor: openItem === 1 ? '#397eff' : '#f8f9fa',
-                color: openItem === 1 ? '#fff' : '#333',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              <h6>How long will it take for my website to be designed?
-                {openItem === 1 && (
-                  <p style={{ marginTop: '10px', fontWeight: 'normal' }}>
-                    The time depends on the complexity of your website.
-                    A simple website may take 1-2 weeks, while more complex designs
-                    may take 3–4 weeks or more.
-                  </p>
-                )}
-              </h6>
-            </div>
+            {/* FAQ List */}
+            {[1, 2, 3, 4].map((id) => {
+              const questions = {
+                1: 'How long will it take to design my website?',
+                2: 'Will we need to meet regularly during the design process?',
+                3: 'Do you provide website maintenance after launch?',
+                4: 'Can I update the website content myself?',
+              };
 
-            <div className="mb-2 p-3 rounded fw-semibold"
-              onClick={() => toggleItem(2)}
-              style={{
-                marginTop: '20px',
-                padding: '20px',
-                borderRadius: '5px',
-                backgroundColor: openItem === 2 ? '#397eff' : '#f8f9fa',
-                color: openItem === 2 ? '#fff' : '#333',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              <h6>Will we have to have a meeting to discuss the website design?
-                {openItem === 2 && (
-                  <p style={{ marginTop: '10px', fontWeight: 'normal' }}>
-                    The time depends on the complexity of your website.
-                    A simple website may take 1-2 weeks, while more complex designs
-                    may take 3–4 weeks or more.
-                  </p>
-                )}
-              </h6>
-            </div>
+              const answers = {
+                1: 'Simple websites take 1-2 weeks, complex sites with custom features take 3-6 weeks.',
+                2: 'We communicate via email, calls, and project tools. Physical meetings are optional.',
+                3: 'Yes, we offer maintenance packages for updates, security, and performance optimization.',
+                4: 'Absolutely! We provide CMS training so you can manage content easily.',
+              };
+
+              return (
+                <div
+                  key={id}
+                  className={`p-3 mb-3 rounded ${openItem === id ? 'bg-primary text-white' : 'bg-white text-dark'}`}
+                  onClick={() => toggleItem(id)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div className="d-flex justify-content-between align-items-center">
+                    <h6 className="mb-0">{questions[id]}</h6>
+                    {openItem === id ? (
+                      <FaMinus className="fs-5" />
+                    ) : (
+                      <FaPlus className="fs-5" />
+                    )}
+                  </div>
+                  {openItem === id && <p className="mt-2">{answers[id]}</p>}
+                </div>
+              );
+            })}
           </div>
         </section>
 
-        {/* SECTION 5 – Get A Quote Section with Background Image */}
-        <section
-          className="text-center d-flex flex-column justify-content-center align-items-center"
-          style={{
-            backgroundImage: `url(${Meeting})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            color: '#fff',
-            position: 'relative',
-            width: '100%',
-            height: '60vh'
-          }}
-        >
-          <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', padding: '40px', borderRadius: '12px' }}>
-            <h3 className="fw-light mb-2">Get A Quote</h3>
-            <h1 className="fw-bold display-4 mb-4">Free Consultations</h1>
+        {/* ✅ Section 5 – Get A Quote */}
+        <section className="quote-banner" data-aos="zoom-in" style={{ backgroundImage: `url(${Meeting})` }}>
+          <div className="content">
+            <h1 className="mb-3 text-white">Get A Quote</h1>
+            <h2 className="mb-4 text-white">Free Consultations</h2>
             <button className="btn btn-warning text-white fw-bold px-4 py-2 rounded-pill">
               Request A Quote
             </button>
           </div>
         </section>
 
-        {/* SECTION 6 – Icons Row */}
-        <section className="container py-5" style={{ backgroundColor: "#f3f7fc" }}>
-          <div className="row justify-content-center align-items-center text-center g-4">
-            {[...Array(6)].map((_, i) => (
-              <div className="col-4 col-sm-2" key={i}>
-                <img
-                  src={DevImage}
-                  alt={`Tech ${i}`}
-                  className="img-fluid rounded-circle"
-                  style={{ width: "120px", height: "120px", objectFit: "cover" }}
-                />
-              </div>
-            ))}
+        {/* ✅ Section 7 – Technologies Used */}
+        <section className="py-5 bg-white" data-aos="fade-up">
+          <div className="container text-center">
+            <h2 className="mb-4">
+              <strong>Technologies </strong>We Use
+            </h2>
+            <p className="text-muted mb-5">
+              We build responsive, SEO-friendly websites using modern tech stacks.
+            </p>
+            <div className="row g-4">
+              {[
+                { name: 'React', logo: 'https://img.icons8.com/color/96/react-native.png' },
+                { name: 'Angular', logo: 'https://img.icons8.com/color/96/angularjs.png' },
+                { name: 'Vue.js', logo: 'https://img.icons8.com/color/96/vue-js.png' },
+                { name: 'WordPress', logo: 'https://img.icons8.com/color/96/wordpress.png' },
+                { name: 'Shopify', logo: 'https://img.icons8.com/color/96/shopify.png' },
+                { name: 'Node.js', logo: 'https://img.icons8.com/color/96/nodejs.png' },
+              ].map((tech, idx) => (
+                <div className="col-6 col-md-2 text-center" key={idx}>
+                  <img src={tech.logo} alt={tech.name} className="img-fluid mb-2" style={{ height: 64 }} />
+                  <h6 className="mt-2">{tech.name}</h6>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
+        {/* ✅ Section 8 – Why Choose Us */}
+        <section className="py-5 bg-light" data-aos="fade-up">
+          <div className="container text-center">
+            <h2 className="mb-4">
+              Why <strong>Choose Us</strong>
+            </h2>
+            <div className="row g-4">
+              {[
+                {
+                  icon: '🎨',
+                  title: 'Creative Designs',
+                  desc: 'Unique, visually appealing designs that represent your brand.',
+                },
+                {
+                  icon: '📱',
+                  title: 'Mobile-First Approach',
+                  desc: 'Websites that look perfect on all devices.',
+                },
+                {
+                  icon: '🔍',
+                  title: 'SEO Optimized',
+                  desc: 'Built with SEO best practices for better visibility.',
+                },
+                {
+                  icon: '⚡',
+                  title: 'Fast Loading',
+                  desc: 'Optimized for speed and performance.',
+                },
+              ].map((item, index) => (
+                <div className="col-md-3" key={index}>
+                  <div className="bg-white p-4 shadow-sm rounded h-100">
+                    <div style={{ fontSize: '2.5rem' }}>{item.icon}</div>
+                    <h5 className="mt-3">{item.title}</h5>
+                    <p className="text-muted">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ✅ Section 9 – Testimonials */}
+        <section className="py-5 bg-white" data-aos="fade-up">
+          <div className="container">
+            <h2 className="text-center mb-4">What Our Clients Say</h2>
+            <div className="row justify-content-center">
+              {[
+                {
+                  name: 'Rajesh Kumar',
+                  text: 'Our e-commerce website conversion rate increased by 40% after Smart Digital Wings redesign. Highly recommended!',
+                },
+                {
+                  name: 'Priya Sharma',
+                  text: 'Professional, responsive, and delivered beyond expectations. Our new website perfectly represents our brand.',
+                },
+              ].map((review, i) => (
+                <div className="col-md-5 m-3 p-4 border rounded shadow-sm" key={i}>
+                  <p className="fst-italic">“{review.text}”</p>
+                  <h6 className="fw-bold mt-3">– {review.name}</h6>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
-    </>
+    </div>
   );
 }
 

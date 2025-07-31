@@ -1,112 +1,160 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.png'; // Adjust path as needed
+import logo from '../../assets/images/logo.png';
+import './Footer.css';
 
 function Footer() {
   return (
-    <footer className="text-white pt-5" style={{ backgroundColor: '#020c30' }}>
+    <footer className="footer">
       <div className="container">
-        <div className="row pb-5 border-bottom border-secondary">
+        <div className="row">
           {/* Logo & Description */}
-          <div className="col-md-4 mb-4">
-            <img src={logo} alt="Smart Digital Wings" style={{ height: 70 }} className="mb-3" />
-            <p>
+          <div className="col-lg-2 footer-section">
+            <div className="footer-logo">
+              <img src={logo} alt="Smart Digital Wings" style={{ height: 70 }} className="mb-3" />
+            </div>
+            <p className="footer-about">
               We are the leading website designing and digital marketing company in Meerut. Hire Us Today!
               We give the wings to your business. Feel free to contact and get a quote for your business.
             </p>
-            <div className="d-flex gap-3 mt-3">
-              <a href="#" className="btn btn-outline-light rounded-circle p-2">
+            <div className="social-links">
+              <a href="#" className="social-icon">
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="#" className="btn btn-outline-light rounded-circle p-2">
+              <a href="#" className="social-icon">
                 <i className="bi bi-twitter"></i>
               </a>
-              <a href="https://www.instagram.com/himanshu_sain____/" className="btn btn-outline-light rounded-circle p-2">
+              <a href="https://www.instagram.com/himanshu_sain____/" className="social-icon">
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="#" className="btn btn-outline-light rounded-circle p-2">
-                <i className="bi bi-pinterest"></i>
+              <a href="#" className="social-icon">
+                <i className="bi bi-linkedin"></i>
               </a>
             </div>
           </div>
 
-          {/* Quick Links 1 */}
-          <div className="col-md-2 mb-4">
-            <h5 className="fw-bold">Quick Links</h5>
-            <ul className="list-unstyled">
-              <li><Link to="/website-designing" className="text-white text-decoration-none">Website Designing</Link></li>
-              <li><Link to="/website-development" className="text-white text-decoration-none">Website Development</Link></li>
-              <li><Link to="/website-maintenance" className="text-white text-decoration-none">Website Maintenance</Link></li>
-              <li><Link to="/software-development" className="text-white text-decoration-none">Software Development</Link></li>
-              <li><Link to="/mobile-app-development" className="text-white text-decoration-none">Mobile App.</Link></li>
-              <li><Link to="/development" className="text-white text-decoration-none">Development</Link></li>
+          {/* Quick Links */}
+          <div className="col-lg-2 col-md-6 footer-section">
+            <h5>QUICK LINKS</h5>
+            <ul className="footer-links">
+              <li>
+                <Link to="/website-designing">Website Designing</Link>
+              </li>
+              <li>
+                <Link to="/website-development">Website Development</Link>
+              </li>
+              <li>
+                <Link to="/website-maintenance">Website Maintenance</Link>
+              </li>
+              <li>
+                <Link to="/software-development">Software Development</Link>
+              </li>
+              <li>
+                <Link to="/mobile-app-development">Mobile App.</Link>
+              </li>
+              <li>
+                <Link to="/development">Development</Link>
+              </li>
             </ul>
           </div>
 
-          {/* Quick Links 2 */}
-          <div className="col-md-2 mb-4">
-            <h5 className="fw-bold invisible">Quick Links</h5>
-            <ul className="list-unstyled pt-md-4 pt-0">
-              <li><Link to="/digital-marketing" className="text-white text-decoration-none">Digital Marketing</Link></li>
-              <li><Link to="/seo" className="text-white text-decoration-none">SEO/SEM</Link></li>
-              <li><Link to="/smo" className="text-white text-decoration-none">SMO/SMM</Link></li>
-              <li><Link to="/ppc" className="text-white text-decoration-none">Pay Per Click</Link></li>
-              <li><Link to="/logo-designing" className="text-white text-decoration-none">Logo Designing</Link></li>
+          {/* Services */}
+          <div className="col-lg-2 col-md-6 footer-section">
+            <h5>SERVICES</h5>
+            <ul className="footer-links">
+              <li>
+                <Link to="/digital-marketing">Digital Marketing</Link>
+              </li>
+              <li>
+                <Link to="/seo">SEO/SEM</Link>
+              </li>
+              <li>
+                <Link to="/smo">SMO/SMM</Link>
+              </li>
+              <li>
+                <Link to="/ppc">Pay Per Click</Link>
+              </li>
+              <li>
+                <Link to="/logo-designing">Logo Designing</Link>
+              </li>
             </ul>
           </div>
 
           {/* Newsletter */}
-          <div className="col-md-4 mb-4">
-            <h5 className="fw-bold">Quick Links</h5>
-            <p>But must explain to you how this mistaken idea denouncing pleasure praising</p>
-            <form className="d-flex">
+          <div className="col-lg-4 footer-section">
+            <h5>NEWSLETTER</h5>
+            <p className="footer-about">
+              But must explain to you how this mistaken idea denouncing pleasure praising
+            </p>
+            <div className="footer-newsletter">
               <input
                 type="email"
                 placeholder="Enter Email Address"
-                className="form-control rounded-0"
               />
-              <button type="submit" className="btn rounded-0" style={{ backgroundColor: '#ff4d4f' }}>
-                <i className="bi bi-send text-white"></i>
+              <button className="newsletter-btn">
+                <i className="bi bi-send"></i>
               </button>
-            </form>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Info */}
-        <div className="row text-center text-md-start pt-4">
-          <div className="col-md-3 mb-3 d-flex align-items-center">
-            <i className="bi bi-geo-alt-fill fs-4 me-2 text-primary"></i>
-            <div>
-              <strong>Address</strong><br />
+        {/* Contact Info */}
+        <div className="contact-info">
+          <div className="contact-item">
+            <div className="contact-icon">
+              <i className="bi bi-geo-alt-fill"></i>
+            </div>
+            <div className="contact-text">
+              <strong>Address</strong>
               Meerut, Uttar Pradesh
             </div>
           </div>
-          <div className="col-md-3 mb-3 d-flex align-items-center">
-            <i className="bi bi-envelope-fill fs-4 me-2 text-primary"></i>
-            <div>
-              <strong>Email Us</strong><br />
-              smartdigitalwings@gmail.com
+          
+          <div className="contact-item">
+            <div className="contact-icon">
+              <i className="bi bi-envelope-fill"></i>
+            </div>
+            <div className="contact-text">
+              <strong>Email Us</strong>
+              ht0257445@gmail.com
             </div>
           </div>
-          <div className="col-md-3 mb-3 d-flex align-items-center">
-            <i className="bi bi-telephone-fill fs-4 me-2 text-primary"></i>
-            <div>
-              <strong>Contact Us</strong><br />
-              +91-7017281826
+          
+          <div className="contact-item">
+            <div className="contact-icon">
+              <i className="bi bi-telephone-fill"></i>
+            </div>
+            <div className="contact-text">
+              <strong>Contact Us</strong>
+              +91-9310891024
             </div>
           </div>
-          <div className="col-md-3 mb-3 d-flex align-items-center">
-            <i className="bi bi-clock-fill fs-4 me-2 text-primary"></i>
-            <div>
-              <strong>Opening Hour</strong><br />
+          
+          <div className="contact-item">
+            <div className="contact-icon">
+              <i className="bi bi-clock-fill"></i>
+            </div>
+            <div className="contact-text">
+              <strong>Opening Hour</strong>
               Mon – Sat, 10 am – 7 pm
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="text-center mt-4">
-          <small>&copy; {new Date().getFullYear()} Smart Digital Wings. All Rights Reserved.</small>
+        {/* Footer Bottom */}
+        <div className="footer-bottom">
+          <ul className="footer-bottom-links">
+            <li>
+              <Link to="/privacy-policy">Privacy Policy</Link>
+            </li>
+            <li>
+              <Link to="/terms">Terms of Service</Link>
+            </li>
+            <li>
+              <Link to="/cookies">Cookie Policy</Link>
+            </li>
+          </ul>
+          <p>&copy; {new Date().getFullYear()} Smart Digital Wings. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
