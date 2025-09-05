@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HomeSection2 from '../HeroSection/HomeSection2.jsx';
 import DevImage from '../../assets/images/webDev3.jpg';
 import WebDev from '../../assets/images/WebDev5.jpg';
-import webDev1 from "../../assets/images/WebDev4.jpg";
+import webDev1 from "../../assets/images/Webdev4.jpg";
 import webDev2 from "../../assets/images/WebDev6.jpg";
 import Meeting from '../../assets/images/meeting.png';
 import AOS from 'aos';
