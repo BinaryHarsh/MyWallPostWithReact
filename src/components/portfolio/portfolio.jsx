@@ -1,5 +1,5 @@
 import React from 'react';
-import './Portfolio.css'; // Optional: Add styling if needed
+import './portfolio.css'; // Optional: Add styling if needed
 import { portfolioItems } from '../../assets/styles/portfolio.js';
 
 
