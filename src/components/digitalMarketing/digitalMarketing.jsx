@@ -38,7 +38,7 @@ function DigitalMarketing() {
           <div className="col-md-6 text-center mb-4 mb-md-0">
             <img src={DevImage} alt="Digital Marketing" className="img-fluid" />
             <div className="bg-warning text-white p-4 mt-4 fw-bold rounded">
-              "We don't just run ads, we grow your business online"
+              "We don't just run ads, we grow your business online s"
             </div>
           </div>
 
