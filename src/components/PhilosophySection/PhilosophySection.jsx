@@ -15,7 +15,7 @@ function PhilosophySection() {
             <img src={philosophyImg} alt="Philosophy" className="mb-3" style={{ height: 70 }} />
             <h4 className="fw-bold mb-3 text-uppercase">Our Philosophy</h4>
             <p>
-              At Smart Digital Wings, our customers are the most valuable assets.
+              At MyWallPost, our customers are the most valuable assets.
               Our team first understands the exact requirements and then advises
               the best solutions to help their business grow.
             </p>
@@ -42,7 +42,7 @@ function PhilosophySection() {
             <img src={workingImg} alt="Working" className="mb-3" style={{ height: 70 }} />
             <h4 className="fw-bold mb-3 text-uppercase">Working</h4>
             <p>
-              At Smart Digital Wings, we have a great work culture. Our team works
+              At MyWallPost, we have a great work culture. Our team works
               in a friendly environment without hierarchy, helping everyone give their best.
             </p>
             <Link to="/about" className="btn btn-light mt-3 fw-bold px-4 py-2">
@@ -57,3 +57,4 @@ function PhilosophySection() {
 }
 
 export default PhilosophySection;
+ 

@@ -154,7 +154,7 @@ function Footer() {
               <Link to="/cookies">Cookie Policy</Link>
             </li>
           </ul>
-          <p>&copy; {new Date().getFullYear()} Smart Digital Wings. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} MyWellPost . All Rights Reserved.</p>
         </div>
       </div>
     </footer>
