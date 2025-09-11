@@ -65,7 +65,7 @@ function ContactUs (){
                       <div>
                         <h6 className="font-weight-medium">Address</h6>
                         <p>
-                          601 Sherwood Ave.
+                          Rotha Road Meerut.
                           <br /> San Bernandino
                         </p>
                       </div>
@@ -83,8 +83,8 @@ function ContactUs (){
                       <div>
                         <h6 className="font-weight-medium">Phone</h6>
                         <p>
-                          251 546 9442
-                          <br /> 630 446 8851
+                          9675988914
+                          <br />9310891024
                         </p>
                       </div>
                     </div>
@@ -101,8 +101,8 @@ function ContactUs (){
                       <div>
                         <h6 className="font-weight-medium">Email</h6>
                         <p>
-                          info@wrappixel.com
-                          <br /> 123@wrappixel.com
+                          mywallposts01@gmail.com
+                          <br /> gautamsmarty2003@gmail.com
                         </p>
                       </div>
                     </div>

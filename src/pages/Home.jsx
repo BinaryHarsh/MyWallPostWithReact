@@ -17,7 +17,7 @@ function Home() {
       <StatsSection />
       <WhyChooseUs />
       <ProcessSection />
-      <TeamSection />
+      {/* <TeamSection /> */}
       <TestimonialsSection />
     </>
   );

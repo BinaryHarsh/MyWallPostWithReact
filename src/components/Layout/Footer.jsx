@@ -116,7 +116,7 @@ function Footer() {
             </div>
             <div className="contact-text">
               <strong>Email Us</strong>
-              ht0257445@gmail.com
+              mywallposts01@gmail.com
             </div>
           </div>
           
@@ -126,7 +126,7 @@ function Footer() {
             </div>
             <div className="contact-text">
               <strong>Contact Us</strong>
-              +91-9310891024
+              +91-9675988914
             </div>
           </div>
           
