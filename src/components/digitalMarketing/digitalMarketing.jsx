@@ -7,6 +7,7 @@ import WebDev from '../../assets/images/Logoweb3.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './Style.css';
+
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
 function DigitalMarketing() {
