@@ -1,9 +1,34 @@
-import React from 'react'
-import './ContactUs.css'
+import React, { useRef, useState } from "react";
+import "./ContactUs.css";
 
-function ContactUs (){
+function ContactUs() {
+  const formRef = useRef(null);
+  const [message, setMessage] = useState("");
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbzAdRt_59T3-E6pjrcKawYDq-9Wly8V_ZZK1rhHQSKiZ3wGe4Zx5kfCflmMbnMf8yad/exec";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(formRef.current),
+    })
+      .then(() => {
+        setMessage(
+          '<div class="alert alert-success" role="alert">Thank you! Your form has been submitted successfully.</div>'
+        );
+        formRef.current.reset();
+      })
+      .catch((error) => {
+        setMessage(
+          '<div class="alert alert-danger" role="alert">Error submitting form. Please try again.</div>'
+        );
+        console.error("Error!", error.message);
+      });
+  };
+
   return (
-     <div className="contact3 py-5">
+    <div className="contact3 py-5">
       <div className="row no-gutters">
         <div className="container">
           <div className="row">
@@ -16,41 +41,78 @@ function ContactUs (){
                 />
               </div>
             </div>
+
             <div className="col-lg-6">
               <div className="contact-box ml-3">
                 <h1 className="font-weight-light mt-2">Quick Contact</h1>
-                <form className="mt-4">
+                <form
+                  ref={formRef}
+                  name="submit-to-google-sheet"
+                  className="mt-4"
+                  onSubmit={handleSubmit}
+                >
                   <div className="row">
                     <div className="col-lg-12">
                       <div className="form-group mt-2">
-                        <input className="form-control" type="text" placeholder="Name" />
+                        <input
+                          className="form-control"
+                          type="text"
+                          name="name"
+                          placeholder="Name"
+                          required
+                        />
                       </div>
                     </div>
                     <div className="col-lg-12">
                       <div className="form-group mt-2">
-                        <input className="form-control" type="email" placeholder="Email Address" />
+                        <input
+                          className="form-control"
+                          type="email"
+                          name="email"
+                          placeholder="Email Address"
+                          required
+                        />
                       </div>
                     </div>
                     <div className="col-lg-12">
                       <div className="form-group mt-2">
-                        <input className="form-control" type="text" placeholder="Phone" />
+                        <input
+                          className="form-control"
+                          type="text"
+                          name="phone"
+                          placeholder="Phone"
+                        />
                       </div>
                     </div>
                     <div className="col-lg-12">
                       <div className="form-group mt-2">
-                        <textarea className="form-control" rows="3" placeholder="Message"></textarea>
+                        <textarea
+                          className="form-control"
+                          rows="3"
+                          name="message"
+                          placeholder="Message"
+                        ></textarea>
                       </div>
                     </div>
                     <div className="col-lg-12">
-                      <button type="submit" className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2">
+                      <button
+                        type="submit"
+                        className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2"
+                      >
                         <span>SUBMIT</span>
                       </button>
                     </div>
                   </div>
                 </form>
+                {/* Show response here */}
+                <div
+                  id="form-response"
+                  dangerouslySetInnerHTML={{ __html: message }}
+                />
               </div>
             </div>
 
+            {/* Contact Info Section (same as before) */}
             <div className="col-lg-12">
               <div className="card mt-4 border-0 mb-4">
                 <div className="row">
@@ -110,12 +172,12 @@ function ContactUs (){
                 </div>
               </div>
             </div>
+            {/* End Contact Info */}
           </div>
         </div>
-      </div> 
+      </div>
     </div>
-   
-  )
+  );
 }
 
-export default ContactUs
+export default ContactUs;
