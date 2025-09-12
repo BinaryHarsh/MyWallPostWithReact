@@ -13,8 +13,8 @@ frontend:
   artifacts:
     baseDirectory: dist
     files:
-      - '**/*'
+      - '/*'
   cache:
     paths:
-      - node_modules/**/*
-      - .npm/**/*
+      - node_modules//*
+      - .npm//*
