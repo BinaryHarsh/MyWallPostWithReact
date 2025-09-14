@@ -3,7 +3,7 @@ import c  from './c.png'
 import html from './html-5.png'
 import css from './css-3.png'
 import javascript from "./java-script.png"
-import react from './react.png'
+// import react from './react.svg'
 import java from './java.png'
 import nodejs from './nodejs.png'
 import nextjs from './nextjs.png'
@@ -46,10 +46,10 @@ export const categories = [
         category: 'javascript',
         icon: javascript
     },
-    {
-        category: 'react',
-        icon: react
-    },
+    // {
+    //     category: 'react',
+    //     icon: react
+    // },
     {
         category: 'java',
         icon: java
