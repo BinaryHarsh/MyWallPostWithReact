@@ -6,7 +6,7 @@ import devlogo2 from '../../assets/images/devlogo2.jpg';
 import WebDev from '../../assets/images/Logoweb3.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import './Style.css';
+import './style.css';
 
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
