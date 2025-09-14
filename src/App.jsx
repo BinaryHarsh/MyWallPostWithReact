@@ -17,10 +17,12 @@ import LoginPage from "./pages/Login.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 // import AOS from 'aos';
 import 'aos/dist/aos.css';
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
   return (
     <>
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

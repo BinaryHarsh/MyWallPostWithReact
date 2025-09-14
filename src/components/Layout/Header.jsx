@@ -109,7 +109,7 @@ function Header() {
             </div>
 
             {/* Login/Signup buttons */}
-            <div className="navbar-nav ms-auto d-flex align-items-center gap-2">
+            {/* <div className="navbar-nav ms-auto d-flex align-items-center gap-2">
               {!isLoggedIn ? (
                 <>
                   <button className="btn btn-outline-primary btn-sm" onClick={handleLogin}>
@@ -124,7 +124,7 @@ function Header() {
                   Sign Out
                 </button>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>

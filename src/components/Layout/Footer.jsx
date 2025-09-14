@@ -116,7 +116,7 @@ function Footer() {
             </div>
             <div className="contact-text">
               <strong>Email Us</strong>
-              ht0257445@gmail.com
+              mywallposts01@gmail.com
             </div>
           </div>
           
@@ -126,7 +126,7 @@ function Footer() {
             </div>
             <div className="contact-text">
               <strong>Contact Us</strong>
-              +91-9310891024
+              +91-9675988914
             </div>
           </div>
           
@@ -154,7 +154,7 @@ function Footer() {
               <Link to="/cookies">Cookie Policy</Link>
             </li>
           </ul>
-          <p>&copy; {new Date().getFullYear()} Smart Digital Wings. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} MyWellPost . All Rights Reserved.</p>
         </div>
       </div>
     </footer>
