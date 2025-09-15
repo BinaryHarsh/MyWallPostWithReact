@@ -16,7 +16,6 @@ export const images = {
     html,
     css,
     javascript,
-    react,
     java,
     nodejs,
     nextjs,
