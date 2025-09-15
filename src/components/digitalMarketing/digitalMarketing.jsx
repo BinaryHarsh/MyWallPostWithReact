@@ -19,6 +19,7 @@ function DigitalMarketing() {
 
   const toggleItem = (id) => {
     setOpenItem(openItem === id ? null : id);
+    
   };
 
   return (
